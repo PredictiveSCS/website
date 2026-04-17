@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predictive Supply Chain Solutions | Fix the Foundation. Scale with Confidence.</title>
+  <meta name="description" content="PSCS cleans your data, connects your systems, and builds the operational backbone that turns reactive CPG teams into proactive ones. Real operators. Real results.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FBFAFF;
+      color: #3D2500;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', sans-serif; }
+
+    /* ── STREAM ANIMATION ───────────────────────────── */
+    @keyframes drawIn {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes fadeInNode {
+      from { opacity: 0; transform: scale(0); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .s-trib {
+      fill: none; stroke: #92B072; stroke-linecap: round;
+      stroke-dasharray: 2800; stroke-dashoffset: 2800;
+      animation: drawIn 2.2s ease-in-out forwards;
+    }
+    .s-main {
+      fill: none; stroke: #92B072; stroke-width: 2.5; stroke-linecap: round;
+      stroke-dasharray: 500; stroke-dashoffset: 500;
+      animation: drawIn 0.7s 2.8s ease-out forwards;
+    }
+    .s-node {
+      transform-origin: 1100px 400px; transform: scale(0); opacity: 0;
+      animation: fadeInNode 0.4s 3.2s ease-out forwards;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .s-trib, .s-main { animation: none; stroke-dashoffset: 0; }
+      .s-node { animation: none; opacity: 1; transform: scale(1); }
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    #site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 22px 0;
+      transition: padding 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #site-nav.scrolled {
+      padding: 13px 0;
+      background: rgba(251,250,255,0.96);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(35,43,23,0.09);
+    }
+    .nav-link {
+      font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500;
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      position: relative; padding-bottom: 3px;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1.5px; background: #92B072;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #CEE1B9; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:focus-visible { outline: 2px solid #92B072; outline-offset: 4px; border-radius: 2px; }
+    #site-nav.scrolled .nav-link { color: #3D2500; }
+    #site-nav.scrolled .nav-link:hover { color: #6B8544; }
+    #site-nav.scrolled .nav-link::after { background: #6B8544; }
+    .nav-cta {
+      font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+      color: white; text-decoration: none; padding: 9px 22px;
+      border: 1.5px solid rgba(255,255,255,0.5); border-radius: 6px;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .nav-cta:hover { background: rgba(255,255,255,0.12); border-color: white; transform: translateY(-1px); }
+    .nav-cta:active { transform: translateY(0); }
+    .nav-cta:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+    #site-nav.scrolled .nav-cta { color: #6B8544; border-color: #6B8544; }
+    #site-nav.scrolled .nav-cta:hover { background: #6B8544; color: white; }
+
+    /* ── BUTTONS ─────────────────────────────────────── */
+    .btn-primary {
+      display: inline-block; font-family: 'Outfit', sans-serif;
+      font-size: 15px; font-weight: 600; color: white; background: #6B8544;
+      padding: 15px 34px; border-radius: 7px; text-decoration: none;
+      border: none; cursor: pointer; letter-spacing: 0.01em;
+      box-shadow: 0 4px 18px rgba(107,133,68,0.38);
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-primary:hover { background: #597039; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(107,133,68,0.45); }
+    .btn-primary:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(107,133,68,0.3); }
+    .btn-primary:focus-visible { outline: 2px solid #CEE1B9; outline-offset: 3px; }
+    .btn-ghost {
+      display: inline-block; font-family: 'Outfit', sans-serif;
+      font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.88);
+      background: transparent; padding: 14px 34px; border-radius: 7px;
+      text-decoration: none; border: 1.5px solid rgba(255,255,255,0.38);
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.7); color: white; transform: translateY(-2px); }
+    .btn-ghost:active { transform: translateY(0); }
+    .btn-ghost:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+
+    /* ── LABELS & HEADINGS ───────────────────────────── */
+    .label {
+      font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: #6B8544;
+      display: block; margin-bottom: 14px;
+    }
+    .label-light { color: #92B072; }
+    .section-heading {
+      font-size: clamp(1.9rem,3.4vw,2.7rem); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.03em; color: #232B17;
+    }
+    .section-heading-white { color: white; }
+
+    /* ── PROBLEM LIST ────────────────────────────────── */
+    .problem-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 18px; border-radius: 9px;
+      background: rgba(184,115,74,0.04);
+      border: 1px solid rgba(184,115,74,0.1);
+    }
+    .problem-icon {
+      width: 22px; height: 22px; background: rgba(184,115,74,0.12);
+      border-radius: 5px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* ── AI PRESSURE CALLOUT ─────────────────────────── */
+    .ai-callout {
+      background: #FFECA0; border-radius: 10px; padding: 18px 22px;
+      border-left: 3px solid #e8c800;
+    }
+
+    /* ── METHODOLOGY PHASES ──────────────────────────── */
+    .phase-row {
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 64px; align-items: start;
+      padding: 64px 0;
+      border-bottom: 1px solid rgba(35,43,23,0.07);
+    }
+    .phase-row:last-child { border-bottom: none; }
+    .phase-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(4rem,7vw,6.5rem); font-weight: 900;
+      line-height: 1; letter-spacing: -0.05em; color: #92B072; opacity: 0.3;
+      transition: opacity 0.3s ease;
+    }
+    .phase-row:hover .phase-num { opacity: 0.55; }
+    .outcome-badge {
+      margin-top: 24px; padding: 16px 20px;
+      background: #F0F4EC; border-radius: 9px;
+      border-left: 3px solid #92B072;
+    }
+
+    /* ── PROBLEM REVEAL (staggered scroll-in) ────────── */
+    .problem-reveal {
+      opacity: 0; transform: translateX(-18px);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .problem-reveal.visible { opacity: 1; transform: translateX(0); }
+
+    /* ── ICON WARNING PULSE ──────────────────────────── */
+    @keyframes iconWarnPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(184,115,74,0.7); }
+      50%  { box-shadow: 0 0 0 6px rgba(184,115,74,0.18); }
+      100% { box-shadow: 0 0 0 10px rgba(184,115,74,0); }
+    }
+    .problem-reveal.visible .problem-icon {
+      animation: iconWarnPulse 0.9s ease-out forwards;
+      animation-delay: var(--pulse-delay, 0.5s);
+    }
+
+    /* ── V8 CARD GLOW BORDER ─────────────────────────── */
+    @keyframes rotateBorder {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .v8-card-wrapper {
+      position: relative;
+      border-radius: 17px;
+      padding: 2px;
+      overflow: hidden;
+    }
+    .v8-card-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(from 0deg,
+        transparent 0%,   transparent 40%,
+        #3d5228 51%, #6B8544 57%, #92B072 63%,
+        #CEE1B9 66%, #92B072 69%, #6B8544 75%,
+        transparent 88%);
+      animation: rotateBorder 8s linear infinite;
+    }
+    .v8-card-inner {
+      position: relative;
+      z-index: 1;
+      border-radius: 15px;
+      background: #232B17;
+    }
+
+    /* ── PHASE TRACK ─────────────────────────────────── */
+    .phase-track { transition: none; }
+
+    /* ── PHASE NUMBER ACTIVATION ─────────────────────── */
+    .phase-num.phase-active { opacity: 0.72; }
+    .phase-row:hover .phase-num.phase-active { opacity: 0.9; }
+
+    /* ── PHASE 4 STEP ANIMATION ──────────────────────── */
+    .phase-step {
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.5s ease, transform 0.4s ease;
+    }
+    .phase-step.step-active { opacity: 1; transform: translateY(0); }
+
+    /* ── PHASE 4 LABEL ENTRY ─────────────────────────── */
+    .phase4-num-entry {
+      opacity: 0; transform: scale(0.82);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .phase4-num-entry.visible { opacity: 0.55; transform: scale(1); }
+
+    /* ── PHASE 4 SPECIAL ─────────────────────────────── */
+    .phase4-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 500px;
+      background: radial-gradient(ellipse, rgba(107,133,68,0.28) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ── CARDS ───────────────────────────────────────── */
+    .card {
+      background: white; border-radius: 14px;
+      border-top: 3px solid transparent;
+      box-shadow: 0 2px 16px rgba(35,43,23,0.06), 0 1px 4px rgba(35,43,23,0.04);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-top-color 0.22s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 48px rgba(35,43,23,0.1), 0 3px 12px rgba(35,43,23,0.06);
+      border-top-color: #92B072;
+    }
+
+    /* ── IMAGE BLOCK ─────────────────────────────────── */
+    .img-block { border-radius: 16px; overflow: hidden; position: relative; }
+    .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .img-block::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, rgba(35,43,23,0.45));
+      pointer-events: none;
+    }
+
+    /* ── FORM ────────────────────────────────────────── */
+    .form-input {
+      width: 100%; padding: 12px 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.13);
+      border-radius: 8px; color: white;
+      font-family: 'Inter', sans-serif; font-size: 14px; outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.32); }
+    .form-input:focus { border-color: rgba(146,176,114,0.65); background: rgba(255,255,255,0.1); }
+    .form-label {
+      font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); display: block; margin-bottom: 7px;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    .footer-link { font-size: 14px; color: rgba(255,255,255,0.58); text-decoration: none; transition: color 0.2s ease; }
+    .footer-link:hover { color: #92B072; }
+
+    /* ── FADE-UP ─────────────────────────────────────── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE MENU ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      .desktop-nav { display: none !important; }
+      .mobile-menu-btn { display: flex !important; }
+    }
+    @media (min-width: 769px) { .mobile-menu-btn { display: none !important; } }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(13,26,9,0.98); z-index: 300;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-nav-link {
+      font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 700;
+      color: white; text-decoration: none; letter-spacing: -0.02em; transition: color 0.2s ease;
+    }
+    .mobile-nav-link:hover { color: #92B072; }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 960px) {
+      .two-col { grid-template-columns: 1fr !important; }
+      .cta-grid { grid-template-columns: 1fr !important; }
+      .footer-grid { grid-template-columns: 1fr 1fr !important; }
+      .stats-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+      .stats-grid > div { border-right: none !important; border-bottom: 1px solid rgba(146,176,114,0.18); }
+      .stats-grid > div:last-child { border-bottom: none; }
+      .phase-row { grid-template-columns: 1fr !important; gap: 24px !important; }
+      .phase-num { font-size: 4rem !important; }
+      .phase-track { display: none !important; }
+      .hero-logo { display: none !important; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .hero-btns { flex-direction: column !important; }
+      .hero-btn-connector { display: none !important; }
+      .cta-inner { padding: 48px 28px !important; }
+      .gigo-split { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════ -->
+<nav id="site-nav" aria-label="Main navigation">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="#" aria-label="Predictive SCS Home">
+      <img src="brand_assets/PSCS Green Stacked Logo.png" alt="Predictive Supply Chain Solutions"
+           id="nav-logo" style="height:44px;width:auto;transition:opacity 0.2s ease;">
+    </a>
+    <div class="desktop-nav" style="display:flex;align-items:center;gap:36px;">
+      <a href="#services" class="nav-link">How It Works</a>
+      <a href="#about"    class="nav-link">About</a>
+      <a href="#contact"  class="nav-cta">Audit Your Infrastructure</a>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false"
+            style="background:none;border:none;cursor:pointer;padding:4px;display:flex;flex-direction:column;gap:5px;">
+      <span style="display:block;width:24px;height:2px;background:white;border-radius:2px;transition:background 0.2s;"></span>
+      <span style="display:block;width:24px;height:2px;background:white;border-radius:2px;transition:background 0.2s;"></span>
+      <span style="display:block;width:18px;height:2px;background:white;border-radius:2px;transition:background 0.2s;"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button id="mobile-close" aria-label="Close menu"
+          style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;color:white;font-size:28px;line-height:1;">✕</button>
+  <a href="#services" class="mobile-nav-link" data-close-menu>How It Works</a>
+  <a href="#about"    class="mobile-nav-link" data-close-menu>About</a>
+  <a href="#contact"  class="mobile-nav-link" data-close-menu style="color:#92B072;">Audit Your Infrastructure →</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO — dark bg + converging streams SVG
+════════════════════════════════════════════════ -->
+<section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#0d1a09;">
+
+  <!-- Subtle depth gradients -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 0% 50%,rgba(35,43,23,0.9) 0%,transparent 60%),radial-gradient(ellipse 50% 80% at 100% 50%,rgba(13,26,9,0.3) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <!-- STREAM SVG — tributaries converging to one unified flow -->
+  <svg viewBox="0 0 1440 800" preserveAspectRatio="xMaxYMid slice"
+       style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;"
+       aria-hidden="true">
+    <defs>
+      <!-- Fade-out mask so streams don't bleed into text area -->
+      <linearGradient id="streamFadeL" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="white" stop-opacity="0"/>
+        <stop offset="28%"  stop-color="white" stop-opacity="0.6"/>
+        <stop offset="43%"  stop-color="white" stop-opacity="1"/>
+        <stop offset="100%" stop-color="white" stop-opacity="1"/>
+      </linearGradient>
+      <mask id="smask"><rect width="1440" height="800" fill="url(#streamFadeL)"/></mask>
+      <!-- Glow for convergence node -->
+      <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#92B072" stop-opacity="0.5"/>
+        <stop offset="100%" stop-color="#92B072" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <g mask="url(#smask)">
+      <!-- Tributaries: all flow toward convergence point (1100, 400) -->
+      <!-- From left edge -->
+      <path class="s-trib" d="M -10,35  C 280,35  680,180 1100,400" stroke-width="0.9" stroke-opacity="0.28" style="animation-delay:0s"/>
+      <path class="s-trib" d="M -10,120 C 300,120 660,220 1100,400" stroke-width="1.1" stroke-opacity="0.32" style="animation-delay:0.18s"/>
+      <path class="s-trib" d="M -10,230 C 320,230 680,300 1100,400" stroke-width="1.3" stroke-opacity="0.38" style="animation-delay:0.08s"/>
+      <path class="s-trib" d="M -10,560 C 320,560 680,490 1100,400" stroke-width="1.3" stroke-opacity="0.38" style="animation-delay:0.25s"/>
+      <path class="s-trib" d="M -10,660 C 300,660 660,560 1100,400" stroke-width="1.1" stroke-opacity="0.3"  style="animation-delay:0.12s"/>
+      <path class="s-trib" d="M -10,760 C 280,760 700,590 1100,400" stroke-width="0.9" stroke-opacity="0.22" style="animation-delay:0.4s"/>
+      <!-- From top -->
+      <path class="s-trib" d="M 420,-10 C 560,160 800,290 1100,400" stroke-width="0.8" stroke-opacity="0.22" style="animation-delay:0.55s"/>
+      <path class="s-trib" d="M 760,-10 C 870,150 980,290 1100,400" stroke-width="0.8" stroke-opacity="0.2"  style="animation-delay:0.7s"/>
+      <!-- From bottom -->
+      <path class="s-trib" d="M 380,810  C 520,650 800,530 1100,400" stroke-width="0.8" stroke-opacity="0.2"  style="animation-delay:0.45s"/>
+      <path class="s-trib" d="M 780,810  C 900,640 1000,520 1100,400" stroke-width="0.8" stroke-opacity="0.22" style="animation-delay:0.6s"/>
+
+      <!-- Convergence glow -->
+      <ellipse cx="1100" cy="400" rx="80" ry="55" fill="url(#nodeGlow)" class="s-node" style="animation-delay:3s"/>
+      <!-- Convergence dot -->
+      <circle cx="1100" cy="400" r="5" fill="#92B072" opacity="0.85" class="s-node" style="animation-delay:3.2s"/>
+      <!-- Main unified river -->
+      <path class="s-main" d="M 1100,400 C 1230,400 1380,400 1460,400" stroke-opacity="0.65"/>
+      <!-- River terminus -->
+      <circle cx="1455" cy="400" r="3" fill="#92B072" opacity="0.5" class="s-node" style="animation-delay:3.6s"/>
+    </g>
+  </svg>
+
+  <!-- PSCS logo positioned at the convergence — where all streams meet -->
+  <div class="hero-logo" style="position:absolute;right:20%;top:50%;transform:translateY(-52%);z-index:3;pointer-events:none;">
+    <img src="brand_assets/PSCS Green Stacked Logo.png" alt=""
+         style="height:120px;width:auto;opacity:0.85;filter:drop-shadow(0 0 22px rgba(146,176,114,0.6)) drop-shadow(0 0 50px rgba(146,176,114,0.25));">
+  </div>
+
+  <!-- Hero content -->
+  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:128px 32px 96px;width:100%;">
+    <div style="max-width:620px;">
+
+      <span class="label label-light" style="color:#92B072;letter-spacing:0.18em;margin-bottom:20px;">
+        Before your AI can work, your data has to.
+      </span>
+
+      <h1 style="font-size:clamp(2.5rem,5.2vw,4rem);font-weight:800;color:white;line-height:1.08;letter-spacing:-0.035em;margin-bottom:10px;">
+        Growth exposes every crack in your operations.
+      </h1>
+      <h1 style="font-size:clamp(2.5rem,5.2vw,4rem);font-weight:800;color:#92B072;line-height:1.08;letter-spacing:-0.035em;margin-bottom:30px;">
+        We fix the cracks before they crack the foundation.
+      </h1>
+
+      <p style="font-family:'Inter',sans-serif;font-size:18px;color:rgba(255,255,255,0.72);line-height:1.75;margin-bottom:44px;max-width:520px;">
+        High-growth brands hit a wall when their systems can't keep up. We clean the data, connect the systems, and build the operational backbone that turns reactive teams into proactive ones.
+      </p>
+
+    </div>
+
+    <!-- Wide CTA row — ghost button reaches toward stream convergence -->
+    <div class="hero-btns" style="display:flex;align-items:center;gap:12px;max-width:960px;">
+      <a href="#contact" class="btn-primary" style="flex-shrink:0;white-space:nowrap;">Audit Your Infrastructure</a>
+      <div class="hero-btn-connector" style="flex:1;min-width:40px;height:1.5px;background:linear-gradient(to right,rgba(146,176,114,0.45),rgba(146,176,114,0.1));"></div>
+      <a href="#services" class="btn-ghost" style="flex-shrink:0;white-space:nowrap;">See How It Works →</a>
+    </div>
+
+  </div>
+
+  <!-- Scroll cue -->
+  <div style="position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.4;">
+    <span style="font-family:'Outfit',sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:white;">Scroll</span>
+    <div style="width:1px;height:36px;background:linear-gradient(to bottom,white,transparent);"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     STATS BAR
+════════════════════════════════════════════════ -->
+<section style="background:#232B17;padding:60px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+    <div class="stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:center;">
+      <div style="padding:16px 40px;border-right:1px solid rgba(146,176,114,0.18);">
+        <div style="font-family:'Outfit',sans-serif;font-size:clamp(2.4rem,4vw,3.5rem);font-weight:800;color:#92B072;line-height:1;letter-spacing:-0.04em;">20+</div>
+        <p style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);margin-top:10px;letter-spacing:0.03em;">Years of Operational Experience</p>
+      </div>
+      <div style="padding:16px 40px;border-right:1px solid rgba(146,176,114,0.18);">
+        <div style="font-family:'Outfit',sans-serif;font-size:clamp(2.4rem,4vw,3.5rem);font-weight:800;color:#92B072;line-height:1;letter-spacing:-0.04em;">360°</div>
+        <p style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);margin-top:10px;letter-spacing:0.03em;">Data Integration Across Channels</p>
+      </div>
+      <div style="padding:16px 40px;">
+        <div style="font-family:'Outfit',sans-serif;font-size:clamp(2.4rem,4vw,3.5rem);font-weight:800;color:#92B072;line-height:1;letter-spacing:-0.04em;">CPG</div>
+        <p style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);margin-top:10px;letter-spacing:0.03em;">Focused · Growth-Stage Specialists</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     THE GIGO CRISIS
+════════════════════════════════════════════════ -->
+<section id="problem" style="padding:120px 0;background:#FBFAFF;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+
+    <!-- Section header -->
+    <div style="max-width:700px;margin:0 auto 72px;text-align:center;">
+      <span class="label" style="color:#6B8544;">The Reality Check</span>
+      <h2 class="section-heading" style="margin-bottom:18px;">
+        The "Garbage In, Garbage Out"&nbsp;Crisis.
+      </h2>
+      <p style="font-size:17px;color:#5C6B52;line-height:1.75;">
+        Every CPG brand at your stage is facing the same reckoning. The question is whether you're going to fix the foundation or keep papering over it.
+      </p>
+    </div>
+
+    <div class="gigo-split" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+
+      <!-- Left: Problem symptoms -->
+      <div>
+        <p style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#BFB7AB;margin-bottom:20px;">Sound like your week?</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <div class="problem-item problem-reveal">
+            <div class="problem-icon">
+              <!-- Scattered nodes — three disconnected dots -->
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="2.2" cy="10" r="1.7" fill="#B8734A"/><circle cx="6.5" cy="2" r="1.7" fill="#B8734A"/><circle cx="11" cy="7.5" r="1.7" fill="#B8734A"/></svg>
+            </div>
+            <p style="font-size:14.5px;color:#3D2500;line-height:1.6;">Your inventory is <strong>scattered across channels</strong> — your ERP, your 3PL, your retail portals — and they're all telling different stories.</p>
+          </div>
+
+          <div class="problem-item problem-reveal">
+            <div class="problem-icon">
+              <!-- Two overlapping V1 documents -->
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="3.5" y="1" width="6" height="7.5" rx="0.8" stroke="#B8734A" stroke-width="1.1" fill="none" opacity="0.5"/><rect x="1.5" y="3.5" width="6" height="7.5" rx="0.8" fill="rgba(251,246,241,1)" stroke="#B8734A" stroke-width="1.1"/><text x="2.8" y="9.2" font-size="3.8" fill="#B8734A" font-weight="700" font-family="sans-serif">V1</text></svg>
+            </div>
+            <p style="font-size:14.5px;color:#3D2500;line-height:1.6;">Your product master is <strong>full of duplicates</strong> — same SKU, five different names, zero consistency.</p>
+          </div>
+
+          <div class="problem-item problem-reveal">
+            <div class="problem-icon">
+              <!-- Download arrow — the manual export grind -->
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><line x1="6.5" y1="1.5" x2="6.5" y2="8" stroke="#B8734A" stroke-width="1.7" stroke-linecap="round"/><polyline points="3.8,6 6.5,9 9.2,6" stroke="#B8734A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="2.5" y1="11.5" x2="10.5" y2="11.5" stroke="#B8734A" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <p style="font-size:14.5px;color:#3D2500;line-height:1.6;">Someone on your team is <strong>manually downloading CSVs</strong> every Monday morning to figure out what to buy.</p>
+          </div>
+
+          <div class="problem-item problem-reveal">
+            <div class="problem-icon">
+              <!-- Forking branches — single truth splitting into versions -->
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><line x1="1.5" y1="6.5" x2="5.2" y2="6.5" stroke="#B8734A" stroke-width="1.6" stroke-linecap="round"/><circle cx="5.2" cy="6.5" r="1.1" fill="#B8734A"/><line x1="5.2" y1="6.5" x2="11.5" y2="3" stroke="#B8734A" stroke-width="1.4" stroke-linecap="round"/><line x1="5.2" y1="6.5" x2="11.5" y2="6.5" stroke="#B8734A" stroke-width="1.4" stroke-linecap="round"/><line x1="5.2" y1="6.5" x2="11.5" y2="10" stroke="#B8734A" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <p style="font-size:14.5px;color:#3D2500;line-height:1.6;">Finance, ops, and sales all have <strong>their own version of the truth</strong> — and they never agree.</p>
+          </div>
+
+        </div>
+
+        <!-- AI pressure callout -->
+        <div class="ai-callout problem-reveal" style="margin-top:24px;">
+          <p style="font-family:'Outfit',sans-serif;font-size:14px;font-style:italic;color:#3D2500;line-height:1.6;font-weight:500;">
+            "So… when are we implementing AI?"
+          </p>
+          <p style="font-size:12px;color:#5C6B52;margin-top:6px;">— Your board, at the last three meetings.</p>
+        </div>
+      </div>
+
+      <!-- Right: The chassis truth -->
+      <div class="fade-up" style="padding-top:8px;">
+        <div class="v8-card-wrapper">
+          <div class="v8-card-inner" style="padding:48px;overflow:hidden;">
+            <!-- Subtle glow -->
+            <div style="position:absolute;top:-60px;right:-60px;width:250px;height:250px;background:radial-gradient(circle,rgba(146,176,114,0.12) 0%,transparent 70%);pointer-events:none;"></div>
+            <!-- Decorative quote mark -->
+            <div style="font-family:'Outfit',sans-serif;font-size:96px;font-weight:900;color:rgba(146,176,114,0.1);line-height:0.7;margin-bottom:24px;position:relative;">"</div>
+            <blockquote style="font-family:'Outfit',sans-serif;font-size:clamp(1.5rem,2.4vw,1.9rem);font-weight:700;color:white;line-height:1.3;letter-spacing:-0.025em;margin-bottom:24px;position:relative;">
+              You can't put a V8 engine on a cracked chassis.
+            </blockquote>
+            <p style="font-size:15px;color:rgba(255,255,255,0.62);line-height:1.75;position:relative;">
+              Until your data is clean, automated, and unified — no tool, no matter how smart, is going to save you. Buying AI on top of broken infrastructure doesn't accelerate your business. It accelerates your mistakes.
+            </p>
+            <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(146,176,114,0.15);position:relative;">
+              <p style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:#92B072;letter-spacing:0.12em;text-transform:uppercase;">The PSCS Principle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     METHODOLOGY — PHASES 1–3
+════════════════════════════════════════════════ -->
+<section id="services" style="background:#F5F8F2;">
+  <!-- Dark section header — flows seamlessly from the stats bar above -->
+  <div style="background:#232B17;padding:80px 0 100px;">
+    <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+      <div style="max-width:600px;margin:0 auto;text-align:center;">
+        <span class="label label-light" style="color:#92B072;">The Methodology</span>
+        <h2 class="section-heading section-heading-white" style="margin-bottom:18px;white-space:nowrap;">Foundation First. Then We Scale.</h2>
+        <p style="font-size:17px;color:rgba(255,255,255,0.62);line-height:1.75;">
+          You can't automate chaos. You can't forecast with bad data. So we don't skip steps.
+          Each phase builds on the last — and none of it happens until the one before is solid.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Phase rows — light background -->
+  <div style="padding:80px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+    <div style="position:relative;">
+
+    <!-- Phase progress line — fills as phases scroll into view -->
+    <div aria-hidden="true" class="phase-track" style="position:absolute;left:252px;top:40px;bottom:40px;width:2px;background:rgba(146,176,114,0.1);border-radius:2px;pointer-events:none;">
+      <div id="phase-fill" style="width:100%;height:0%;background:linear-gradient(to bottom,#6B8544,#92B072);border-radius:2px;transition:height 0.8s cubic-bezier(0.4,0,0.2,1);"></div>
+    </div>
+
+    <!-- Phase 1: Foundation -->
+    <div class="phase-row fade-up">
+      <div>
+        <div class="phase-num">01</div>
+        <div style="margin-top:12px;">
+          <span class="label" style="color:#6B8544;">Foundation</span>
+          <p style="font-size:13px;font-weight:600;color:#92B072;font-family:'Outfit',sans-serif;">Systems Setup &amp; Master Data</p>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,#CEE1B9,#92B072);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(107,133,68,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M3 6h18M3 12h18M3 18h18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="20" cy="6" r="3" fill="white" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size:20px;font-weight:700;color:#232B17;margin-bottom:10px;letter-spacing:-0.02em;">We rip out the rot.</h3>
+            <p style="font-size:15px;color:#5C6B52;line-height:1.75;max-width:580px;">We clean up your product master, consolidate inventory across every channel — Amazon, Shopify, ERP, 3PL — and create a single, unified dataset your entire organization can trust. Not "mostly right." Actually right.</p>
+          </div>
+        </div>
+        <div class="outcome-badge">
+          <p style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:#6B8544;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">The Outcome</p>
+          <p style="font-size:15px;font-weight:600;color:#232B17;font-family:'Outfit',sans-serif;">One clean, unified dataset your entire team can trust.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2: Velocity -->
+    <div class="phase-row fade-up">
+      <div>
+        <div class="phase-num">02</div>
+        <div style="margin-top:12px;">
+          <span class="label" style="color:#6B8544;">Velocity</span>
+          <p style="font-size:13px;font-weight:600;color:#92B072;font-family:'Outfit',sans-serif;">Custom Automation</p>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,#CEE1B9,#92B072);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(107,133,68,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size:20px;font-weight:700;color:#232B17;margin-bottom:10px;letter-spacing:-0.02em;">We build the connective tissue.</h3>
+            <p style="font-size:15px;color:#5C6B52;line-height:1.75;max-width:580px;">We replace manual data entry with automated, real-time data flow between your systems. No more Monday morning CSV downloads. No more "which version is current?" No more waiting on a report to make a decision you needed to make last week.</p>
+          </div>
+        </div>
+        <div class="outcome-badge">
+          <p style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:#6B8544;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">The Outcome</p>
+          <p style="font-size:15px;font-weight:600;color:#232B17;font-family:'Outfit',sans-serif;">Data moves autonomously between your systems in real-time. No manual handoffs, no lag, no surprises.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3: Visibility -->
+    <div class="phase-row fade-up">
+      <div>
+        <div class="phase-num">03</div>
+        <div style="margin-top:12px;">
+          <span class="label" style="color:#6B8544;">Visibility</span>
+          <p style="font-size:13px;font-weight:600;color:#92B072;font-family:'Outfit',sans-serif;">BI &amp; Reporting</p>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,#CEE1B9,#92B072);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(107,133,68,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <polyline points="3,17 8,11 12,14 16,8 21,10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="21" cy="10" r="2" fill="white"/>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size:20px;font-weight:700;color:#232B17;margin-bottom:10px;letter-spacing:-0.02em;">We build dashboards worth opening.</h3>
+            <p style="font-size:15px;color:#5C6B52;line-height:1.75;max-width:580px;">Not vanity metrics. Real operational intelligence. Executive-grade dashboards that surface cash flow exposure, inventory liability, and production capacity — updated to the minute, not the month. The kind your leadership team actually opens every morning.</p>
+          </div>
+        </div>
+        <div class="outcome-badge">
+          <p style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:#6B8544;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;">The Outcome</p>
+          <p style="font-size:15px;font-weight:600;color:#232B17;font-family:'Outfit',sans-serif;">Total visibility into cash flow, inventory liability, and capacity — updated to the minute, not the month.</p>
+        </div>
+      </div>
+    </div>
+
+    </div><!-- end phases wrapper -->
+  </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PHASE 4 — EXECUTION (the payoff)
+════════════════════════════════════════════════ -->
+<section id="process" style="padding:120px 0;background:#232B17;position:relative;overflow:hidden;">
+
+  <!-- The glow at center — the "reward" moment -->
+  <div class="phase4-glow"></div>
+  <!-- Large watermark number -->
+  <div style="position:absolute;right:-60px;top:50%;transform:translateY(-50%);font-family:'Outfit',sans-serif;font-size:48vw;font-weight:900;color:rgba(146,176,114,0.03);line-height:1;pointer-events:none;user-select:none;">4</div>
+
+  <div style="max-width:900px;margin:0 auto;padding:0 32px;text-align:center;position:relative;z-index:2;">
+
+    <!-- Phase number — large, matching phases 1–3 -->
+    <div class="phase4-num-entry" style="font-family:'Outfit',sans-serif;font-size:clamp(4rem,7vw,6.5rem);font-weight:900;color:#92B072;line-height:1;letter-spacing:-0.05em;margin-bottom:12px;">04</div>
+
+    <!-- Phase label -->
+    <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(146,176,114,0.12);border:1px solid rgba(146,176,114,0.28);border-radius:100px;padding:8px 20px;margin-bottom:32px;">
+      <span style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:#92B072;letter-spacing:0.12em;text-transform:uppercase;">Execution</span>
+      <span style="width:1px;height:14px;background:rgba(146,176,114,0.3);"></span>
+      <span style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.5);letter-spacing:0.08em;text-transform:uppercase;">Proactive Demand Planning</span>
+    </div>
+
+    <h2 style="font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;color:white;line-height:1.12;letter-spacing:-0.035em;margin-bottom:24px;">
+      With clean data flowing in real-time,<br>we deploy models that see <span class="counter-24">24</span> months out.
+    </h2>
+
+    <p style="font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:680px;margin:0 auto 48px;">
+      Demand planning models that simulate your Open-to-Buy and production throughput across your full horizon. Not "what happened last quarter" — what's going to happen next year, and what you need to do about it today.
+    </p>
+
+    <!-- The payoff outcome -->
+    <div style="display:inline-block;background:rgba(146,176,114,0.14);border:1.5px solid rgba(146,176,114,0.35);border-radius:14px;padding:28px 48px;margin-bottom:48px;">
+      <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#92B072;margin-bottom:10px;">The Outcome</p>
+      <p style="font-family:'Outfit',sans-serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:#CEE1B9;line-height:1.25;letter-spacing:-0.02em;">You stop buying blind.</p>
+    </div>
+
+    <!-- The sequential payoff logic -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(146,176,114,0.15);border-radius:10px;overflow:hidden;max-width:700px;margin:0 auto;">
+      <div class="phase-step" style="background:#1a2410;padding:16px 12px;text-align:center;">
+        <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;color:rgba(146,176,114,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">01</div>
+        <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);font-family:'Outfit',sans-serif;">Clean Data</div>
+      </div>
+      <div class="phase-step" style="background:#1a2410;padding:16px 12px;text-align:center;">
+        <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;color:rgba(146,176,114,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">02</div>
+        <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);font-family:'Outfit',sans-serif;">Automation</div>
+      </div>
+      <div class="phase-step" style="background:#1a2410;padding:16px 12px;text-align:center;">
+        <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;color:rgba(146,176,114,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">03</div>
+        <div style="font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);font-family:'Outfit',sans-serif;">Visibility</div>
+      </div>
+      <div class="phase-step" style="background:rgba(107,133,68,0.22);border:1px solid rgba(146,176,114,0.35);padding:16px 12px;text-align:center;">
+        <div style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;color:#92B072;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">04</div>
+        <div style="font-size:12px;font-weight:700;color:#CEE1B9;font-family:'Outfit',sans-serif;">Execution</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     THE MOAT — BUILT BY OPERATORS
+════════════════════════════════════════════════ -->
+<section id="about" style="padding:120px 0;background:#FBFAFF;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+    <div class="two-col" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+
+      <!-- Left: Image -->
+      <div class="fade-up" style="position:relative;">
+        <div class="img-block" style="height:540px;background:#0d1a09;box-shadow:0 28px 72px rgba(35,43,23,0.14),0 8px 24px rgba(35,43,23,0.08);">
+          <img src="brand_assets/Alex Monochrome.png" alt="Alex Maibaum, Founder and CEO of Predictive Supply Chain Solutions" style="object-fit:cover;object-position:center top;">
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:24px 28px;z-index:2;pointer-events:none;">
+            <p style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:white;margin:0;text-shadow:0 1px 6px rgba(0,0,0,0.5);">Alex Maibaum</p>
+            <p style="font-family:'Inter',sans-serif;font-size:13px;font-weight:400;color:rgba(255,255,255,0.68);margin:4px 0 0;letter-spacing:0.01em;text-shadow:0 1px 4px rgba(0,0,0,0.4);">Founder &amp; CEO</p>
+          </div>
+        </div>
+        <!-- Float stat -->
+        <div style="position:absolute;bottom:-28px;right:-28px;background:white;border-radius:13px;padding:24px 28px;box-shadow:0 10px 40px rgba(35,43,23,0.13),0 2px 8px rgba(35,43,23,0.06);border:1px solid rgba(146,176,114,0.18);">
+          <div style="font-family:'Outfit',sans-serif;font-size:2.6rem;font-weight:800;color:#92B072;line-height:1;letter-spacing:-0.04em;">20+</div>
+          <div style="font-size:12px;font-weight:600;color:#5C6B52;margin-top:8px;line-height:1.4;font-family:'Outfit',sans-serif;">Years in the Trenches.<br>Not in a Boardroom.</div>
+        </div>
+      </div>
+
+      <!-- Right: Copy -->
+      <div class="fade-up">
+        <span class="label">Why PSCS</span>
+        <h2 class="section-heading" style="margin-bottom:24px;">
+          Built by Operators,<br>for Operators.
+        </h2>
+        <p style="font-size:16px;color:#5C6B52;line-height:1.8;margin-bottom:20px;">
+          We aren't career consultants who read about supply chain theory. We built these systems in the trenches — for brands like <strong style="color:#232B17;">Melin</strong> and <strong style="color:#232B17;">Callaway</strong>.
+        </p>
+        <p style="font-size:16px;color:#5C6B52;line-height:1.8;margin-bottom:20px;">
+          We know what it takes to physically move a container. We know what a 3PL agreement looks like when it breaks down. And we know <em>exactly</em> how bad data creates trapped capital — because we've spent 20 years finding it.
+        </p>
+        <p style="font-size:16px;color:#5C6B52;line-height:1.8;margin-bottom:28px;">
+          When we walk into your business, we're not scoping a project. We're diagnosing a system. There's a difference, and you'll feel it on day one.
+        </p>
+        <!-- Proof metrics -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;">
+          <div style="background:#F0F4EC;border-radius:12px;padding:20px 22px;border-left:3px solid #92B072;">
+            <div style="font-family:'Outfit',sans-serif;font-size:2.4rem;font-weight:800;color:#6B8544;line-height:1;letter-spacing:-0.03em;">4×</div>
+            <p style="font-size:12.5px;font-weight:600;color:#5C6B52;margin-top:8px;line-height:1.4;">inventory turns increase across portfolio brands</p>
+          </div>
+          <div style="background:#F0F4EC;border-radius:12px;padding:20px 22px;border-left:3px solid #92B072;">
+            <div style="font-family:'Outfit',sans-serif;font-size:2.4rem;font-weight:800;color:#6B8544;line-height:1;letter-spacing:-0.03em;">40%</div>
+            <p style="font-size:12.5px;font-weight:600;color:#5C6B52;margin-top:8px;line-height:1.4;">improvement in operational cash flow</p>
+          </div>
+        </div>
+        <!-- Proof points -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;background:#CEE1B9;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2.5,8 6,11.5 13.5,4" stroke="#6B8544" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p style="font-size:14.5px;color:#3D2500;font-weight:500;">Deep roots in CPG operations — from startup to enterprise scale</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;background:#CEE1B9;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2.5,8 6,11.5 13.5,4" stroke="#6B8544" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p style="font-size:14.5px;color:#3D2500;font-weight:500;">We implement alongside your team — not just advise and leave</p>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;background:#CEE1B9;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2.5,8 6,11.5 13.5,4" stroke="#6B8544" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p style="font-size:14.5px;color:#3D2500;font-weight:500;">We've been inside the same broken spreadsheets you're living in</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CTA — YOU'VE OUTGROWN YOUR SYSTEMS
+════════════════════════════════════════════════ -->
+<section id="contact" style="padding:120px 0;background:#F5F8F2;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+    <div style="background:#232B17;border-radius:24px;overflow:hidden;position:relative;">
+
+      <!-- Glows -->
+      <div style="position:absolute;top:-80px;right:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(146,176,114,0.13) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-60px;left:8%;width:420px;height:300px;background:radial-gradient(circle,rgba(146,176,114,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+
+      <div class="cta-inner cta-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding:80px;position:relative;">
+
+        <!-- Left: Copy -->
+        <div>
+          <span class="label label-light">Ready to Fix It?</span>
+          <h2 style="font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:700;color:white;line-height:1.18;letter-spacing:-0.03em;margin-bottom:24px;">
+            You've outgrown your systems.<br>Let's fix that.
+          </h2>
+          <p style="font-size:16px;color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:36px;">
+            We start every engagement the same way: by listening. Tell us where things are breaking — we'll tell you honestly what it would take to fix it. If we're not the right fit, we'll tell you that too.
+          </p>
+          <!-- Trust signals -->
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:28px;height:28px;background:rgba(146,176,114,0.16);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><polyline points="2,6.5 5,9.5 11,3.5" stroke="#92B072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span style="font-size:14px;color:rgba(255,255,255,0.65);">Free infrastructure audit call — no pitch, just diagnosis</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:28px;height:28px;background:rgba(146,176,114,0.16);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><polyline points="2,6.5 5,9.5 11,3.5" stroke="#92B072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span style="font-size:14px;color:rgba(255,255,255,0.65);">Built specifically for growth-stage CPG brands</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:28px;height:28px;background:rgba(146,176,114,0.16);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><polyline points="2,6.5 5,9.5 11,3.5" stroke="#92B072" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span style="font-size:14px;color:rgba(255,255,255,0.65);">We respond within one business day</span>
+            </div>
+          </div>
+
+          <!-- Direct contact links -->
+          <div style="margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.08);">
+            <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:14px;">Or reach us directly</p>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <a href="tel:5417298430" style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#92B072'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 1.5h2.5L5.75 4.25 4.25 5.25c.8 1.6 2 2.8 3.5 3.5l1-.75 2.75 1.25v2.5a1 1 0 01-1 1C5.5 12.75.25 7.5.25 1.5a1 1 0 011-1H2z" fill="rgba(255,255,255,0.4)"/></svg>
+                (541) 729-8430
+              </a>
+              <a href="mailto:info@predictivescs.com" style="display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s ease;" onmouseover="this.style.color='#92B072'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2.5" width="11" height="8" rx="1.5" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" fill="none"/><path d="M1 4l5.5 3.5L12 4" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/></svg>
+                info@predictivescs.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div>
+          <form id="contact-form" style="display:flex;flex-direction:column;gap:16px;" novalidate>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div>
+                <label class="form-label" for="fname">First Name</label>
+                <input class="form-input" id="fname" name="fname" type="text" placeholder="Alex" autocomplete="given-name">
+              </div>
+              <div>
+                <label class="form-label" for="lname">Last Name</label>
+                <input class="form-input" id="lname" name="lname" type="text" placeholder="Smith" autocomplete="family-name">
+              </div>
+            </div>
+            <div>
+              <label class="form-label" for="email">Work Email</label>
+              <input class="form-input" id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email">
+            </div>
+            <div>
+              <label class="form-label" for="company">Company &amp; Stage</label>
+              <input class="form-input" id="company" name="company" type="text" placeholder="Your CPG brand — $5M, scaling to $20M" autocomplete="organization">
+            </div>
+            <div>
+              <label class="form-label" for="challenge">Where are things breaking?</label>
+              <textarea class="form-input" id="challenge" name="challenge" rows="4" style="resize:none;"
+                        placeholder="Inventory not syncing, can't trust my numbers, team drowning in spreadsheets…"></textarea>
+            </div>
+            <button type="submit" class="btn-primary"
+                    style="width:100%;text-align:center;padding:17px;font-size:16px;cursor:pointer;margin-top:4px;">
+              Book a Free Infrastructure Audit
+            </button>
+            <p style="font-size:12px;color:rgba(255,255,255,0.3);text-align:center;line-height:1.5;">
+              30 minutes. Honest assessment. No commitment required.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer style="background:#0d1a09;padding:72px 0 32px;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+    <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;margin-bottom:56px;">
+
+      <div>
+        <img src="brand_assets/PSCS Green Stacked Logo.png" alt="Predictive SCS"
+             style="height:52px;width:auto;margin-bottom:20px;filter:brightness(0) saturate(100%) invert(67%) sepia(22%) saturate(530%) hue-rotate(52deg) brightness(95%);">
+        <p style="font-size:14px;color:rgba(255,255,255,0.42);line-height:1.75;max-width:260px;">
+          Fix the foundation. Connect the systems. Stop buying blind.
+        </p>
+        <div style="display:flex;gap:10px;margin-top:22px;">
+          <a href="https://www.linkedin.com/company/predictivescs" aria-label="LinkedIn"
+             style="width:34px;height:34px;background:rgba(255,255,255,0.07);border-radius:7px;display:flex;align-items:center;justify-content:center;transition:background 0.2s ease;"
+             onmouseover="this.style.background='rgba(146,176,114,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.07)'">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13.5 1H2.5A1.5 1.5 0 001 2.5v11A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-11A1.5 1.5 0 0013.5 1zM5.5 13H3.5V6.5h2V13zm-1-7.5a1 1 0 110-2 1 1 0 010 2zM13 13h-2V9.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5V13H6V6.5h2V7.6A3 3 0 0113 9.5V13z" fill="rgba(255,255,255,0.45)"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Services</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="#services" class="footer-link">Foundation</a></li>
+          <li><a href="#services" class="footer-link">Velocity</a></li>
+          <li><a href="#services" class="footer-link">Visibility</a></li>
+          <li><a href="#process"  class="footer-link">Execution</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Company</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="#about"   class="footer-link">About</a></li>
+          <li><a href="#problem" class="footer-link">The GIGO Crisis</a></li>
+          <li><a href="#contact" class="footer-link">Get Started</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Get in Touch</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:13px;">
+          <li><a href="tel:5417298430" class="footer-link" style="display:flex;align-items:center;gap:9px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 1.5h2.5L5.75 4.25 4.25 5.25c.8 1.6 2 2.8 3.5 3.5l1-.75 2.75 1.25v2.5a1 1 0 01-1 1C5.5 12.75.25 7.5.25 1.5a1 1 0 011-1H2z" fill="rgba(255,255,255,0.35)"/></svg>
+            (541) 729-8430
+          </a></li>
+          <li><a href="mailto:info@predictivescs.com" class="footer-link" style="display:flex;align-items:center;gap:9px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2.5" width="11" height="8" rx="1.5" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/><path d="M1 4l5.5 3.5L12 4" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/></svg>
+            info@predictivescs.com
+          </a></li>
+          <li><a href="https://www.predictivescs.com" class="footer-link" style="display:flex;align-items:center;gap:9px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/><path d="M1 6.5h11M6.5 1C5 1 3.5 3.5 3.5 6.5S5 12 6.5 12 9.5 9.5 9.5 6.5 8 1 6.5 1z" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/></svg>
+            predictivescs.com
+          </a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-size:13px;color:rgba(255,255,255,0.24);">© 2025 Predictive Supply Chain Solutions · All rights reserved.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,0.24);">Garbage out? Not on our watch.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════ -->
+<script>
+  // ── Nav scroll ──────────────────────────────────
+  const nav = document.getElementById('site-nav');
+  const hLines = document.querySelectorAll('#mobile-menu-btn span');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.classList.add('scrolled');
+      hLines.forEach(l => l.style.background = '#3D2500');
+    } else {
+      nav.classList.remove('scrolled');
+      hLines.forEach(l => l.style.background = 'white');
+    }
+  }, { passive: true });
+
+  // ── Mobile menu ─────────────────────────────────
+  const mm  = document.getElementById('mobile-menu');
+  const mmb = document.getElementById('mobile-menu-btn');
+  const mmc = document.getElementById('mobile-close');
+  const open  = () => { mm.classList.add('open'); mmb.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; };
+  const close = () => { mm.classList.remove('open'); mmb.setAttribute('aria-expanded','false'); document.body.style.overflow=''; };
+  mmb.addEventListener('click', open);
+  mmc.addEventListener('click', close);
+  document.querySelectorAll('[data-close-menu]').forEach(el => el.addEventListener('click', close));
+
+  // ── Smooth scroll ────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    });
+  });
+
+  // ── Fade-up on scroll ────────────────────────────
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    const sibs = el.parentElement.querySelectorAll('.fade-up');
+    let d = 0;
+    sibs.forEach((s, j) => { if (s === el) d = j; });
+    el.style.transitionDelay = `${d * 90}ms`;
+    io.observe(el);
+  });
+
+  // ── Form submit ──────────────────────────────────
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Request Received ✓';
+    btn.style.background = '#92B072';
+    btn.disabled = true;
+    this.reset();
+  });
+
+  // ── Stream bead animation ─────────────────────────
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const svgEl = document.querySelector('#hero svg');
+    if (!svgEl) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const g    = svgEl.querySelector('g');
+    const defs = svgEl.querySelector('defs');
+
+    // Glow filter
+    const filt = document.createElementNS(NS, 'filter');
+    filt.id = 'bead-glow';
+    filt.setAttribute('x', '-100%'); filt.setAttribute('y', '-100%');
+    filt.setAttribute('width', '300%'); filt.setAttribute('height', '300%');
+    filt.innerHTML =
+      '<feGaussianBlur in="SourceGraphic" stdDeviation="2.4" result="b"/>' +
+      '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>';
+    defs.appendChild(filt);
+
+    // Tributary bezier paths [P0,P1,P2,P3] — right-side streams excluded
+    const TRIBS = [
+      [[-10,35],  [280,35],  [680,180], [1100,400]],
+      [[-10,120], [300,120], [660,220], [1100,400]],
+      [[-10,230], [320,230], [680,300], [1100,400]],
+      [[-10,560], [320,560], [680,490], [1100,400]],
+      [[-10,660], [300,660], [660,560], [1100,400]],
+      [[-10,760], [280,760], [700,590], [1100,400]],
+      [[420,-10], [560,160], [800,290], [1100,400]],
+      [[760,-10], [870,150], [980,290], [1100,400]],
+      [[380,810], [520,650], [800,530], [1100,400]],
+      [[780,810], [900,640], [1000,520], [1100,400]],
+    ];
+    const MAIN = [[1100,400],[1230,400],[1380,400],[1460,400]];
+
+    const bez = (t, p0, p1, p2, p3) => {
+      const u = 1 - t;
+      return [
+        u*u*u*p0[0] + 3*u*u*t*p1[0] + 3*u*t*t*p2[0] + t*t*t*p3[0],
+        u*u*u*p0[1] + 3*u*u*t*p1[1] + 3*u*t*t*p2[1] + t*t*t*p3[1],
+      ];
+    };
+
+    const active = [];
+    let lastSpawn = 0, nextDelay = 600;
+
+    const mkBead = (path, isMain) => {
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('r',       isMain ? '3.5' : '2');
+      c.setAttribute('fill',    isMain ? '#CEE1B9' : '#92B072');
+      c.setAttribute('opacity', isMain ? '1'    : '0.88');
+      c.setAttribute('filter',  'url(#bead-glow)');
+      g.appendChild(c);
+      return {
+        c, t: 0,
+        speed: isMain
+          ? 0.005 + Math.random() * 0.003
+          : 0.002 + Math.random() * 0.0025,
+        path, isMain,
+      };
+    };
+
+    // Expanding ring at convergence when a tributary bead arrives
+    const pulse = () => {
+      const ring = document.createElementNS(NS, 'circle');
+      ring.setAttribute('cx', '1100'); ring.setAttribute('cy', '400');
+      ring.setAttribute('r',  '7');   ring.setAttribute('fill', 'none');
+      ring.setAttribute('stroke', '#92B072'); ring.setAttribute('stroke-width', '1.2');
+      g.appendChild(ring);
+      let r = 7, op = 0.75;
+      const id = setInterval(() => {
+        r += 3; op -= 0.09;
+        ring.setAttribute('r', r);
+        ring.setAttribute('opacity', Math.max(0, op));
+        if (op <= 0) { clearInterval(id); ring.remove(); }
+      }, 18);
+    };
+
+    const tick = (now) => {
+      // Spawn a new tributary bead at a random interval (cap at 20 concurrent)
+      if (active.length < 20 && now - lastSpawn > nextDelay) {
+        active.push(mkBead(TRIBS[Math.floor(Math.random() * TRIBS.length)], false));
+        lastSpawn   = now;
+        nextDelay   = 500 + Math.random() * 1800;
+      }
+
+      for (let i = active.length - 1; i >= 0; i--) {
+        const b = active[i];
+        b.t = Math.min(b.t + b.speed, 1);
+        const [x, y] = bez(b.t, b.path[0], b.path[1], b.path[2], b.path[3]);
+        b.c.setAttribute('cx', x);
+        b.c.setAttribute('cy', y);
+
+        if (b.t >= 1) {
+          b.c.remove();
+          active.splice(i, 1);
+          if (!b.isMain) {
+            pulse();
+            // ~70% chance a trib arrival triggers a main-stream bead
+            if (Math.random() > 0.3) active.push(mkBead(MAIN, true));
+          }
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+
+    // Start after the stream draw animation completes (~3.6s)
+    setTimeout(() => requestAnimationFrame(tick), 3600);
+  })();
+
+  // ── Problem reveal — staggered scroll-in ─────────
+  document.querySelectorAll('.problem-reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 220}ms`;
+    // Pulse fires after item's own reveal transition completes
+    const icon = el.querySelector('.problem-icon');
+    if (icon) icon.style.setProperty('--pulse-delay', `${i * 220 + 480}ms`);
+    io.observe(el);
+  });
+
+  // ── Phase progress line (01–03) ───────────────────
+  const phaseRows = document.querySelectorAll('.phase-row');
+  const phaseFill = document.getElementById('phase-fill');
+  if (phaseRows.length && phaseFill) {
+    let phaseActivated = 0;
+    const phaseIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          phaseActivated++;
+          phaseFill.style.height = `${(phaseActivated / phaseRows.length) * 100}%`;
+          const num = entry.target.querySelector('.phase-num');
+          if (num) num.classList.add('phase-active');
+          phaseIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    phaseRows.forEach(row => phaseIO.observe(row));
+  }
+
+  // ── Phase 4 payoff — counter + step sequence ─────
+  const phase4Section = document.getElementById('process');
+  if (phase4Section) {
+    const counterEl = phase4Section.querySelector('.counter-24');
+    const phase4Num = phase4Section.querySelector('.phase4-num-entry');
+    const steps     = phase4Section.querySelectorAll('.phase-step');
+    let phase4Fired = false;
+
+    const p4IO = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !phase4Fired) {
+        phase4Fired = true;
+
+        // Scale-in the large "04" label
+        if (phase4Num) phase4Num.classList.add('visible');
+
+        // Count 0 → 24 ("24 months out")
+        if (counterEl) {
+          counterEl.textContent = '0';
+          let n = 0;
+          const timer = setInterval(() => {
+            n++;
+            counterEl.textContent = n;
+            if (n >= 24) clearInterval(timer);
+          }, 65);
+        }
+
+        // Activate pipeline steps 01 → 02 → 03 → 04 in sequence
+        steps.forEach((step, i) => {
+          setTimeout(() => step.classList.add('step-active'), 200 + i * 320);
+        });
+
+        p4IO.disconnect();
+      }
+    }, { threshold: 0.3 });
+    p4IO.observe(phase4Section);
+  }
+</script>
+
+</body>
+</html>
