@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | Predictive Supply Chain Solutions</title>
+  <meta name="description" content="Terms of Service for Predictive Supply Chain Solutions, Inc. Please read these terms carefully before using our website.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FBFAFF;
+      color: #3D2500;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', sans-serif; }
+
+    #site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 13px 0;
+      background: rgba(251,250,255,0.96);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(35,43,23,0.09);
+    }
+    .nav-link {
+      font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500;
+      color: #3D2500; text-decoration: none;
+      position: relative; padding-bottom: 3px;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1.5px; background: #6B8544;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #6B8544; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-cta {
+      font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+      color: #6B8544; text-decoration: none; padding: 9px 22px;
+      border: 1.5px solid #6B8544; border-radius: 6px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .nav-cta:hover { background: #6B8544; color: white; transform: translateY(-1px); }
+
+    .legal-hero {
+      background: #232B17;
+      padding: 140px 32px 64px;
+    }
+    .legal-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .legal-hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+    }
+    .legal-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 64px 32px 120px;
+    }
+    .legal-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #232B17;
+      margin: 48px 0 16px;
+      letter-spacing: -0.02em;
+    }
+    .legal-body h2:first-of-type {
+      margin-top: 0;
+    }
+    .legal-body p {
+      font-size: 15px;
+      color: #5C6B52;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .legal-body ul {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .legal-body li {
+      font-size: 15px;
+      color: #5C6B52;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .legal-body a {
+      color: #6B8544;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(107,133,68,0.3);
+      transition: border-color 0.2s ease;
+    }
+    .legal-body a:hover {
+      border-color: #6B8544;
+    }
+
+    .footer-link { font-size: 14px; color: rgba(255,255,255,0.58); text-decoration: none; transition: color 0.2s ease; }
+    .footer-link:hover { color: #92B072; }
+
+    @media (max-width: 768px) {
+      .desktop-nav { display: none !important; }
+      .mobile-menu-btn { display: flex !important; }
+    }
+    @media (min-width: 769px) { .mobile-menu-btn { display: none !important; } }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(13,26,9,0.98); z-index: 300;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-nav-link {
+      font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 700;
+      color: white; text-decoration: none; transition: color 0.2s ease;
+    }
+    .mobile-nav-link:hover { color: #92B072; }
+
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 960px) {
+      .footer-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="site-nav" aria-label="Main navigation">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" aria-label="Predictive SCS Home">
+      <img src="brand_assets/PSCS Green Stacked Logo.png" alt="Predictive Supply Chain Solutions"
+           style="height:44px;width:auto;">
+    </a>
+    <div class="desktop-nav" style="display:flex;align-items:center;gap:36px;">
+      <a href="/#services" class="nav-link">How It Works</a>
+      <a href="/#about"    class="nav-link">About</a>
+      <a href="/#contact"  class="nav-cta">Audit Your Infrastructure</a>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false"
+            style="background:none;border:none;cursor:pointer;padding:4px;display:flex;flex-direction:column;gap:5px;">
+      <span style="display:block;width:24px;height:2px;background:#3D2500;border-radius:2px;"></span>
+      <span style="display:block;width:24px;height:2px;background:#3D2500;border-radius:2px;"></span>
+      <span style="display:block;width:18px;height:2px;background:#3D2500;border-radius:2px;"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+  <button id="mobile-close" aria-label="Close menu"
+          style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;color:white;font-size:28px;">&#10005;</button>
+  <a href="/#services" class="mobile-nav-link" data-close-menu>How It Works</a>
+  <a href="/#about"    class="mobile-nav-link" data-close-menu>About</a>
+  <a href="/#contact"  class="mobile-nav-link" data-close-menu style="color:#92B072;">Audit Your Infrastructure &rarr;</a>
+</div>
+
+<!-- HERO -->
+<div class="legal-hero">
+  <div style="max-width:800px;margin:0 auto;">
+    <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#92B072;margin-bottom:14px;">Legal</p>
+    <h1>Terms of Service</h1>
+    <p>Last updated: April 17, 2026</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="legal-body">
+
+  <h2>Agreement to Terms</h2>
+  <p>By accessing or using the website operated by Predictive Supply Chain Solutions, Inc. ("PSCS," "we," "us," or "our") at <a href="https://www.predictivescs.com">predictivescs.com</a>, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
+
+  <h2>Description of Services</h2>
+  <p>PSCS provides operational consulting, data infrastructure services, business intelligence, and demand planning solutions for consumer packaged goods (CPG) brands. Our website provides information about our services and allows you to contact us regarding potential engagements.</p>
+  <p>The information on our website is provided for general informational purposes only and does not constitute professional advice. Any consulting engagement is governed by a separate service agreement between PSCS and the client.</p>
+
+  <h2>Intellectual Property</h2>
+  <p>All content on this website — including text, graphics, logos, icons, images, audio clips, digital downloads, data compilations, and software — is the property of Predictive Supply Chain Solutions, Inc. or its content suppliers and is protected by United States and international copyright, trademark, and other intellectual property laws.</p>
+  <p>Our name, logo, and all related product and service names, design marks, and slogans are trademarks of Predictive Supply Chain Solutions, Inc. You may not use these marks without our prior written permission.</p>
+
+  <h2>Use of Website</h2>
+  <p>You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the website. Prohibited behavior includes but is not limited to:</p>
+  <ul>
+    <li>Attempting to gain unauthorized access to our systems or data</li>
+    <li>Using the website to transmit harmful code, spam, or malicious content</li>
+    <li>Scraping, crawling, or otherwise collecting data from our website through automated means without our written consent</li>
+    <li>Reproducing, duplicating, copying, or redistributing any content from our website for commercial purposes without our written permission</li>
+    <li>Misrepresenting your identity or affiliation when contacting us through the website</li>
+  </ul>
+
+  <h2>Contact Form Submissions</h2>
+  <p>When you submit information through our contact form, you represent that the information you provide is accurate and that you are authorized to share it. We will use this information solely to respond to your inquiry and for the purposes described in our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+  <h2>No Professional Advice</h2>
+  <p>The content on our website, including blog posts, case studies, and service descriptions, is for informational purposes only and does not constitute professional consulting, financial, legal, or operational advice. You should not act or refrain from acting based on information on this website without seeking professional advice tailored to your specific circumstances.</p>
+  <p>Any engagement for professional services will be governed by a separate written agreement that clearly defines the scope, terms, and deliverables.</p>
+
+  <h2>Third-Party Links</h2>
+  <p>Our website may contain links to third-party websites or services that are not owned or controlled by PSCS. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You access third-party links at your own risk.</p>
+
+  <h2>Disclaimer of Warranties</h2>
+  <p>This website is provided on an "as is" and "as available" basis without any warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+  <p>We do not warrant that the website will be uninterrupted, error-free, or free of viruses or other harmful components. We do not warrant or make any representations regarding the accuracy, reliability, or completeness of any content on this website.</p>
+
+  <h2>Limitation of Liability</h2>
+  <p>To the fullest extent permitted by applicable law, Predictive Supply Chain Solutions, Inc., its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, use, or other intangible losses, resulting from:</p>
+  <ul>
+    <li>Your use of or inability to use the website</li>
+    <li>Any content obtained from the website</li>
+    <li>Unauthorized access to or alteration of your transmissions or data</li>
+    <li>Any other matter relating to the website</li>
+  </ul>
+
+  <h2>Indemnification</h2>
+  <p>You agree to indemnify, defend, and hold harmless Predictive Supply Chain Solutions, Inc. and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with your access to or use of the website or your violation of these Terms of Service.</p>
+
+  <h2>Governing Law</h2>
+  <p>These Terms of Service shall be governed by and construed in accordance with the laws of the State of Oregon, without regard to its conflict of law provisions. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts located in the State of Oregon.</p>
+
+  <h2>Changes to These Terms</h2>
+  <p>We reserve the right to modify these Terms of Service at any time. When we do, we will revise the "Last updated" date at the top of this page. Your continued use of the website after any changes constitutes your acceptance of the new terms.</p>
+
+  <h2>Severability</h2>
+  <p>If any provision of these Terms of Service is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary so that the remaining provisions will remain in full force and effect.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have any questions about these Terms of Service, please contact us:</p>
+  <p>
+    <strong>Predictive Supply Chain Solutions, Inc.</strong><br>
+    Email: <a href="mailto:info@predictivescs.com">info@predictivescs.com</a><br>
+    Phone: <a href="tel:5417298430">(541) 729-8430</a><br>
+    Website: <a href="https://www.predictivescs.com">predictivescs.com</a>
+  </p>
+
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#0d1a09;padding:72px 0 32px;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+    <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;margin-bottom:56px;">
+      <div>
+        <img src="brand_assets/PSCS Green Stacked Logo.png" alt="Predictive SCS"
+             style="height:52px;width:auto;margin-bottom:20px;filter:brightness(0) saturate(100%) invert(67%) sepia(22%) saturate(530%) hue-rotate(52deg) brightness(95%);">
+        <p style="font-size:14px;color:rgba(255,255,255,0.42);line-height:1.75;max-width:260px;">
+          Fix the foundation. Connect the systems. Stop buying blind.
+        </p>
+      </div>
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Services</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="/#services" class="footer-link">Foundation</a></li>
+          <li><a href="/#services" class="footer-link">Velocity</a></li>
+          <li><a href="/#services" class="footer-link">Visibility</a></li>
+          <li><a href="/#process"  class="footer-link">Execution</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Company</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="/#about"   class="footer-link">About</a></li>
+          <li><a href="/#contact" class="footer-link">Get Started</a></li>
+          <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
+          <li><a href="/terms.html"   class="footer-link" style="color:#92B072;">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Get in Touch</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:13px;">
+          <li><a href="tel:5417298430" class="footer-link" style="display:flex;align-items:center;gap:9px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 1.5h2.5L5.75 4.25 4.25 5.25c.8 1.6 2 2.8 3.5 3.5l1-.75 2.75 1.25v2.5a1 1 0 01-1 1C5.5 12.75.25 7.5.25 1.5a1 1 0 011-1H2z" fill="rgba(255,255,255,0.35)"/></svg>
+            (541) 729-8430
+          </a></li>
+          <li><a href="mailto:info@predictivescs.com" class="footer-link" style="display:flex;align-items:center;gap:9px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2.5" width="11" height="8" rx="1.5" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/><path d="M1 4l5.5 3.5L12 4" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/></svg>
+            info@predictivescs.com
+          </a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-size:13px;color:rgba(255,255,255,0.24);">&copy; 2025 Predictive Supply Chain Solutions, Inc. &middot; All rights reserved.</p>
+      <div style="display:flex;gap:24px;">
+        <a href="/privacy.html" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#92B072'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="/terms.html" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#92B072'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const mm  = document.getElementById('mobile-menu');
+  const mmb = document.getElementById('mobile-menu-btn');
+  const mmc = document.getElementById('mobile-close');
+  mmb.addEventListener('click', () => { mm.classList.add('open'); document.body.style.overflow='hidden'; });
+  mmc.addEventListener('click', () => { mm.classList.remove('open'); document.body.style.overflow=''; });
+  document.querySelectorAll('[data-close-menu]').forEach(el => el.addEventListener('click', () => { mm.classList.remove('open'); document.body.style.overflow=''; }));
+</script>
+
+</body>
+</html>

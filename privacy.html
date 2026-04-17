@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Predictive Supply Chain Solutions</title>
+  <meta name="description" content="Privacy Policy for Predictive Supply Chain Solutions, Inc. Learn how we collect, use, and protect your information.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FBFAFF;
+      color: #3D2500;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Outfit', sans-serif; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    #site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 13px 0;
+      background: rgba(251,250,255,0.96);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(35,43,23,0.09);
+    }
+    .nav-link {
+      font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500;
+      color: #3D2500; text-decoration: none;
+      position: relative; padding-bottom: 3px;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1.5px; background: #6B8544;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #6B8544; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-cta {
+      font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+      color: #6B8544; text-decoration: none; padding: 9px 22px;
+      border: 1.5px solid #6B8544; border-radius: 6px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+    .nav-cta:hover { background: #6B8544; color: white; transform: translateY(-1px); }
+
+    /* ── CONTENT ─────────────────────────────────────── */
+    .legal-hero {
+      background: #232B17;
+      padding: 140px 32px 64px;
+    }
+    .legal-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .legal-hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.5);
+    }
+    .legal-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 64px 32px 120px;
+    }
+    .legal-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #232B17;
+      margin: 48px 0 16px;
+      letter-spacing: -0.02em;
+    }
+    .legal-body h2:first-of-type {
+      margin-top: 0;
+    }
+    .legal-body p {
+      font-size: 15px;
+      color: #5C6B52;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .legal-body ul {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .legal-body li {
+      font-size: 15px;
+      color: #5C6B52;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .legal-body a {
+      color: #6B8544;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(107,133,68,0.3);
+      transition: border-color 0.2s ease;
+    }
+    .legal-body a:hover {
+      border-color: #6B8544;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    .footer-link { font-size: 14px; color: rgba(255,255,255,0.58); text-decoration: none; transition: color 0.2s ease; }
+    .footer-link:hover { color: #92B072; }
+
+    /* ── MOBILE ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .desktop-nav { display: none !important; }
+      .mobile-menu-btn { display: flex !important; }
+    }
+    @media (min-width: 769px) { .mobile-menu-btn { display: none !important; } }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(13,26,9,0.98); z-index: 300;
+      flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-nav-link {
+      font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 700;
+      color: white; text-decoration: none; transition: color 0.2s ease;
+    }
+    .mobile-nav-link:hover { color: #92B072; }
+
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 960px) {
+      .footer-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="site-nav" aria-label="Main navigation">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" aria-label="Predictive SCS Home">
+      <img src="brand_assets/PSCS Green Stacked Logo.png" alt="Predictive Supply Chain Solutions"
+           style="height:44px;width:auto;">
+    </a>
+    <div class="desktop-nav" style="display:flex;align-items:center;gap:36px;">
+      <a href="/#services" class="nav-link">How It Works</a>
+      <a href="/#about"    class="nav-link">About</a>
+      <a href="/#contact"  class="nav-cta">Audit Your Infrastructure</a>
+    </div>
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false"
+            style="background:none;border:none;cursor:pointer;padding:4px;display:flex;flex-direction:column;gap:5px;">
+      <span style="display:block;width:24px;height:2px;background:#3D2500;border-radius:2px;"></span>
+      <span style="display:block;width:24px;height:2px;background:#3D2500;border-radius:2px;"></span>
+      <span style="display:block;width:18px;height:2px;background:#3D2500;border-radius:2px;"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+  <button id="mobile-close" aria-label="Close menu"
+          style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;color:white;font-size:28px;">&#10005;</button>
+  <a href="/#services" class="mobile-nav-link" data-close-menu>How It Works</a>
+  <a href="/#about"    class="mobile-nav-link" data-close-menu>About</a>
+  <a href="/#contact"  class="mobile-nav-link" data-close-menu style="color:#92B072;">Audit Your Infrastructure &rarr;</a>
+</div>
+
+<!-- HERO -->
+<div class="legal-hero">
+  <div style="max-width:800px;margin:0 auto;">
+    <p style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#92B072;margin-bottom:14px;">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: April 17, 2026</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="legal-body">
+
+  <h2>Introduction</h2>
+  <p>Predictive Supply Chain Solutions, Inc. ("PSCS," "we," "us," or "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://www.predictivescs.com">predictivescs.com</a> and use our services.</p>
+  <p>By using our website, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use our website.</p>
+
+  <h2>Information We Collect</h2>
+  <p><strong>Information you provide directly:</strong></p>
+  <ul>
+    <li>Name, email address, company name, and phone number when you submit our contact form or book a consultation</li>
+    <li>Any additional information you choose to include in form submissions or email correspondence</li>
+  </ul>
+  <p><strong>Information collected automatically:</strong></p>
+  <ul>
+    <li>Device and browser information (browser type, operating system, screen resolution)</li>
+    <li>IP address and approximate geographic location</li>
+    <li>Pages visited, time spent on pages, referring URLs, and click behavior</li>
+    <li>Cookies and similar tracking technologies (see "Cookies" section below)</li>
+  </ul>
+
+  <h2>How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Respond to your inquiries and provide the services you request</li>
+    <li>Send follow-up communications related to your inquiry or our engagement</li>
+    <li>Analyze website traffic and usage patterns to improve our website and services</li>
+    <li>Run and measure the effectiveness of advertising campaigns</li>
+    <li>Comply with legal obligations and protect our rights</li>
+  </ul>
+  <p>We do not sell, rent, or trade your personal information to third parties for their marketing purposes.</p>
+
+  <h2>Cookies and Tracking Technologies</h2>
+  <p>Our website uses cookies and similar technologies to enhance your experience and gather analytical data. These include:</p>
+  <ul>
+    <li><strong>Essential cookies:</strong> Required for basic website functionality</li>
+    <li><strong>Analytics cookies:</strong> We use Google Analytics 4 to understand how visitors interact with our website. Google Analytics collects information such as how often users visit, what pages they view, and what other sites they used prior to coming to our site. We use this information to improve our website and services. Google's ability to use and share information collected by Google Analytics is governed by the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+    <li><strong>Advertising cookies:</strong> We may use tracking pixels and cookies from advertising platforms including Google Ads, LinkedIn, and Meta (Facebook/Instagram) to measure the effectiveness of our advertising, retarget visitors, and reach similar audiences. These third-party services may collect information about your online activities over time and across different websites.</li>
+  </ul>
+  <p>You can control cookies through your browser settings. Most browsers allow you to refuse cookies or alert you when cookies are being sent. Please note that disabling cookies may affect the functionality of our website.</p>
+
+  <h2>Third-Party Services</h2>
+  <p>We use the following third-party services that may collect and process your data:</p>
+  <ul>
+    <li><strong>Google Analytics 4</strong> &mdash; website analytics and traffic measurement</li>
+    <li><strong>Google Ads</strong> &mdash; advertising, conversion tracking, and remarketing</li>
+    <li><strong>LinkedIn Ads</strong> &mdash; advertising and conversion tracking</li>
+    <li><strong>Meta (Facebook/Instagram) Ads</strong> &mdash; advertising and conversion tracking</li>
+    <li><strong>Formspree</strong> &mdash; contact form processing and email delivery</li>
+    <li><strong>Vercel</strong> &mdash; website hosting and content delivery</li>
+  </ul>
+  <p>Each of these services has its own privacy policy governing the use of your information. We encourage you to review their respective policies.</p>
+
+  <h2>Data Retention</h2>
+  <p>We retain personal information submitted through our contact form for as long as necessary to fulfill the purposes outlined in this policy, maintain our business records, or as required by law. Analytics data is retained according to the default retention settings of the respective analytics platforms.</p>
+
+  <h2>Data Security</h2>
+  <p>We implement reasonable technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+  <h2>Your Rights</h2>
+  <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+  <ul>
+    <li>The right to access the personal information we hold about you</li>
+    <li>The right to request correction of inaccurate information</li>
+    <li>The right to request deletion of your personal information</li>
+    <li>The right to opt out of certain data processing activities, including targeted advertising</li>
+    <li>The right to withdraw consent where processing is based on consent</li>
+  </ul>
+  <p>To exercise any of these rights, please contact us at <a href="mailto:info@predictivescs.com">info@predictivescs.com</a>.</p>
+
+  <h2>California Privacy Rights</h2>
+  <p>If you are a California resident, you may have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information we collect, the right to request deletion, and the right to opt out of the sale of personal information. We do not sell personal information. To submit a request, contact us at <a href="mailto:info@predictivescs.com">info@predictivescs.com</a>.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>Our website and services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child, we will take steps to delete that information promptly.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. We encourage you to review this policy periodically to stay informed about how we are protecting your information.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+  <p>
+    <strong>Predictive Supply Chain Solutions, Inc.</strong><br>
+    Email: <a href="mailto:info@predictivescs.com">info@predictivescs.com</a><br>
+    Phone: <a href="tel:5417298430">(541) 729-8430</a><br>
+    Website: <a href="https://www.predictivescs.com">predictivescs.com</a>
+  </p>
+
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#0d1a09;padding:72px 0 32px;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 32px;">
+    <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:48px;margin-bottom:56px;">
+      <div>
+        <img src="brand_assets/PSCS Green Stacked Logo.png" alt="Predictive SCS"
+             style="height:52px;width:auto;margin-bottom:20px;filter:brightness(0) saturate(100%) invert(67%) sepia(22%) saturate(530%) hue-rotate(52deg) brightness(95%);">
+        <p style="font-size:14px;color:rgba(255,255,255,0.42);line-height:1.75;max-width:260px;">
+          Fix the foundation. Connect the systems. Stop buying blind.
+        </p>
+      </div>
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Services</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="/#services" class="footer-link">Foundation</a></li>
+          <li><a href="/#services" class="footer-link">Velocity</a></li>
+          <li><a href="/#services" class="footer-link">Visibility</a></li>
+          <li><a href="/#process"  class="footer-link">Execution</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Company</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:11px;">
+          <li><a href="/#about"   class="footer-link">About</a></li>
+          <li><a href="/#contact" class="footer-link">Get Started</a></li>
+          <li><a href="/privacy.html" class="footer-link" style="color:#92B072;">Privacy Policy</a></li>
+          <li><a href="/terms.html"   class="footer-link">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;">Get in Touch</h4>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:13px;">
+          <li><a href="tel:5417298430" class="footer-link" style="display:flex;align-items:center;gap:9px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 1.5h2.5L5.75 4.25 4.25 5.25c.8 1.6 2 2.8 3.5 3.5l1-.75 2.75 1.25v2.5a1 1 0 01-1 1C5.5 12.75.25 7.5.25 1.5a1 1 0 011-1H2z" fill="rgba(255,255,255,0.35)"/></svg>
+            (541) 729-8430
+          </a></li>
+          <li><a href="mailto:info@predictivescs.com" class="footer-link" style="display:flex;align-items:center;gap:9px;">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2.5" width="11" height="8" rx="1.5" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/><path d="M1 4l5.5 3.5L12 4" stroke="rgba(255,255,255,0.35)" stroke-width="1.2"/></svg>
+            info@predictivescs.com
+          </a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <p style="font-size:13px;color:rgba(255,255,255,0.24);">&copy; 2025 Predictive Supply Chain Solutions, Inc. &middot; All rights reserved.</p>
+      <div style="display:flex;gap:24px;">
+        <a href="/privacy.html" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#92B072'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a>
+        <a href="/terms.html" style="font-size:13px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#92B072'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const mm  = document.getElementById('mobile-menu');
+  const mmb = document.getElementById('mobile-menu-btn');
+  const mmc = document.getElementById('mobile-close');
+  mmb.addEventListener('click', () => { mm.classList.add('open'); document.body.style.overflow='hidden'; });
+  mmc.addEventListener('click', () => { mm.classList.remove('open'); document.body.style.overflow=''; });
+  document.querySelectorAll('[data-close-menu]').forEach(el => el.addEventListener('click', () => { mm.classList.remove('open'); document.body.style.overflow=''; }));
+</script>
+
+</body>
+</html>
