@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'PSCS Website <noreply@predictivescs.com>',
+        from: 'PSCS Website <noreply@email.predictivescs.com>',
         to: ['sales@predictivescs.com'],
         reply_to: email,
         subject: `New Inquiry from ${fname} ${lname || ''} — ${company || 'No company listed'}`,
