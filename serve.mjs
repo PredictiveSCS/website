@@ -28,6 +28,8 @@ const MIME = {
 const server = http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/' || urlPath === '') urlPath = '/index.html';
+  // Extensionless HTML routes
+  if (!path.extname(urlPath)) urlPath = urlPath + '.html';
 
   const filePath = path.join(__dirname, urlPath);
 
