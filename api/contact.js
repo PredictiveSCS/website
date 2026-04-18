@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'PSCS Website <noreply@email.predictivescs.com>',
-        to: ['sales@predictivescs.com'],
+        to: ['elliottajohnson@gmail.com'],
         reply_to: email,
         subject: `New Inquiry from ${fname} ${lname || ''} — ${company || 'No company listed'}`,
         html: `
