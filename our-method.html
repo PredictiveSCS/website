@@ -434,7 +434,7 @@
 <!-- ═══════════════════════════════════════════════
      HERO
 ════════════════════════════════════════════════ -->
-<section style="background:#232B17;padding:140px 32px 88px;position:relative;overflow:hidden;">
+<section style="background:#232B17;padding:104px 32px 72px;position:relative;overflow:hidden;">
   <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 75% 50%,rgba(146,176,114,0.07) 0%,transparent 65%);pointer-events:none;"></div>
   <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
     <p class="section-label">The PSCS Platform</p>
@@ -459,7 +459,7 @@
 <!-- ═══════════════════════════════════════════════
      THE GAP
 ════════════════════════════════════════════════ -->
-<section style="background:#F0F4EC;padding:96px 32px;">
+<section style="background:#F0F4EC;padding:64px 32px;">
   <div style="max-width:1200px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:52px;" class="fade-up">
@@ -531,7 +531,7 @@
 <!-- ═══════════════════════════════════════════════
      PLATFORM CAPABILITIES
 ════════════════════════════════════════════════ -->
-<section style="background:#FBFAFF;padding:96px 32px;">
+<section style="background:#FBFAFF;padding:64px 32px;">
   <div style="max-width:1200px;margin:0 auto;">
 
     <div style="text-align:center;margin-bottom:52px;" class="fade-up">
@@ -598,7 +598,7 @@
           </svg>
         </div>
         <h3 style="font-size:16px;font-weight:700;color:#232B17;margin-bottom:10px;letter-spacing:-0.02em;">Real-Time Recalculation</h3>
-        <p style="font-size:14px;color:#5C6B52;line-height:1.75;">Hit Re-Calculate and the entire model updates instantly across all SKUs and time periods. No waiting on a report. No exporting to Excel.</p>
+        <p style="font-size:14px;color:#5C6B52;line-height:1.75;">The engine recalculates automatically the moment a planner touches a number — instantly across all SKUs and time periods. No waiting on a report. No exporting to Excel.</p>
       </div>
 
       <div class="fade-up" style="background:white;border:1px solid rgba(146,176,114,0.18);border-radius:12px;padding:32px;transition-delay:0.3s;">
@@ -622,7 +622,7 @@
 <!-- ═══════════════════════════════════════════════
      SIMULATION SPOTLIGHT
 ════════════════════════════════════════════════ -->
-<section style="background:#232B17;padding:96px 32px;">
+<section style="background:#232B17;padding:64px 32px;">
   <div style="max-width:1200px;margin:0 auto;">
     <div class="sim-layout-grid">
 
@@ -661,8 +661,7 @@
             <div>
               <div class="sim-chrome-label">Organization</div>
               <div class="sim-chrome-value">
-                Demo Client
-                <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 3.5l3 3 3-3" stroke="rgba(255,255,255,0.35)" stroke-width="1.1" stroke-linecap="round"/></svg>
+                ABC Corporation
               </div>
             </div>
             <div>
@@ -673,7 +672,6 @@
               </div>
             </div>
             <div id="sim-status" class="sim-status"></div>
-            <button class="sim-recalc-btn" id="sim-recalc-btn">Re-Calculate</button>
           </div>
           <div class="sim-table-scroll">
             <table class="sim-table">
@@ -724,7 +722,7 @@
 <!-- ═══════════════════════════════════════════════
      FINANCIAL SPOTLIGHT
 ════════════════════════════════════════════════ -->
-<section style="background:#F0F4EC;padding:96px 32px;">
+<section style="background:#F0F4EC;padding:64px 32px;">
   <div style="max-width:1200px;margin:0 auto;">
 
     <!-- Intro -->
@@ -826,7 +824,7 @@
 <!-- ═══════════════════════════════════════════════
      INVITE CTA
 ════════════════════════════════════════════════ -->
-<section style="background:#F0F4EC;padding:96px 32px;">
+<section style="background:#F0F4EC;padding:64px 32px;">
   <div style="max-width:680px;margin:0 auto;text-align:center;" class="fade-up">
     <p class="section-label">Exclusive Access</p>
     <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:#232B17;letter-spacing:-0.03em;line-height:1.15;margin-bottom:20px;">
@@ -948,12 +946,7 @@
   }
 
   function updateRows(eopVals, wohVals) {
-    const btn = document.getElementById('sim-recalc-btn');
-    btn.classList.add('pulsing');
-    btn.textContent = 'Calculating\u2026';
     setTimeout(() => {
-      btn.textContent = 'Re-Calculate';
-      btn.classList.remove('pulsing');
       eopVals.forEach((v, i) => {
         const el = document.getElementById('e' + i);
         el.textContent = v.toLocaleString();
@@ -985,8 +978,6 @@
       w.textContent = BASE_WOH[i];
       w.classList.remove('sim-cell-updated', 'sim-cell-flash');
     });
-    document.getElementById('sim-recalc-btn').classList.remove('pulsing');
-    document.getElementById('sim-recalc-btn').textContent = 'Re-Calculate';
     setStatus('');
   }
 
@@ -994,38 +985,37 @@
     // t=0: base state (clean)
     resetGrid();
 
-    // t=2200: type +5,000 into Jun
+    // t=2000: type +5,000 into Jun
     setTimeout(() => {
       setStatus('Planner models new PO arrival in June\u2026');
       typeIntoCell('s2', '+5,000', () => {
         updateRows(S1_EOP, S1_WOH);
         setStatus('Inventory position updates across all forward periods');
       });
-    }, 2200);
+    }, 2000);
 
-    // t=5500: clear status, pause
-    setTimeout(() => setStatus(''), 5500);
+    // t=7500: clear status, pause
+    setTimeout(() => setStatus(''), 7500);
 
-    // t=6800: type -3,000 into Jul
+    // t=9000: type -3,000 into Jul
     setTimeout(() => {
       setStatus('Testing reduced order scenario in July\u2026');
       typeIntoCell('s3', '-3,000', () => {
         updateRows(S2_EOP, S2_WOH);
         setStatus('Downstream impact cascades in real time');
       });
-    }, 6800);
+    }, 9000);
 
-    // t=10500: clear status, hold
-    setTimeout(() => setStatus(''), 10500);
+    // t=15500: clear status, hold
+    setTimeout(() => setStatus(''), 15500);
 
-    // t=13000: reset and loop
     // (loop is handled by setInterval)
   }
 
   // Kick off after brief delay, then repeat
   setTimeout(() => {
     runSimLoop();
-    setInterval(runSimLoop, 14000);
+    setInterval(runSimLoop, 21000);
   }, 1800);
 
   // ── Finance demo animation ────────────────────────────
@@ -1070,10 +1060,10 @@
     const runFinLoop = () => {
       resetGrid();
       setTimeout(() => { setStatus('$43,185 in Pants committed for September'); highlightSKU('f-m2-sep'); }, 2000);
-      setTimeout(() => { setStatus('Planner reduces Pants buy by $15,000'); flashCell('f-m2-sep', 'down', ADJUSTED['f-m2-sep']); }, 4500);
-      setTimeout(() => { setStatus('September commitment updates in real time'); flashCell('f-tot-sep', 'down', ADJUSTED['f-tot-sep']); }, 5600);
-      setTimeout(() => { setStatus('Finance sees the change before it’s locked in'); }, 7500);
-      setTimeout(() => setStatus(''), 9500);
+      setTimeout(() => { setStatus('Planner reduces Pants buy by $15,000'); flashCell('f-m2-sep', 'down', ADJUSTED['f-m2-sep']); }, 5500);
+      setTimeout(() => { setStatus('September commitment updates in real time'); flashCell('f-tot-sep', 'down', ADJUSTED['f-tot-sep']); }, 9500);
+      setTimeout(() => { setStatus('Finance sees the change before it’s locked in'); }, 13500);
+      setTimeout(() => setStatus(''), 17000);
     };
     const finStatusEl = document.getElementById('fin-status');
     if (!finStatusEl) return;
@@ -1083,7 +1073,7 @@
     const finIO = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && !hasStarted) {
         hasStarted = true;
-        setTimeout(() => { runFinLoop(); setInterval(runFinLoop, 12000); }, 800);
+        setTimeout(() => { runFinLoop(); setInterval(runFinLoop, 21000); }, 800);
       }
     }, { threshold: 0.3 });
     finIO.observe(finContainer);
