@@ -996,32 +996,28 @@
   }
 
   function runSimLoop() {
-    // t=0: base state (clean)
     resetGrid();
 
-    // t=2000: type +5,000 into Jun
+    // Show context, then start typing 2.5s later so user can read it
+    setTimeout(() => setStatus('Planner models new PO arrival in June\u2026'), 2000);
     setTimeout(() => {
-      setStatus('Planner models new PO arrival in June\u2026');
       typeIntoCell('s2', '+5,000', () => {
         updateRows(S1_EOP, S1_WOH);
         setStatus('Inventory position updates across all forward periods');
       });
-    }, 2000);
+    }, 4500);
 
-    // t=7500: clear status, pause
-    setTimeout(() => setStatus(''), 7500);
+    setTimeout(() => setStatus(''), 9500);
 
-    // t=9000: type -3,000 into Jul
+    setTimeout(() => setStatus('Testing reduced order scenario in July\u2026'), 11000);
     setTimeout(() => {
-      setStatus('Testing reduced order scenario in July\u2026');
       typeIntoCell('s3', '-3,000', () => {
         updateRows(S2_EOP, S2_WOH);
         setStatus('Downstream impact cascades in real time');
       });
-    }, 9000);
+    }, 13500);
 
-    // t=15500: clear status, hold
-    setTimeout(() => setStatus(''), 15500);
+    setTimeout(() => setStatus(''), 19000);
 
     // (loop is handled by setInterval)
   }
@@ -1036,7 +1032,7 @@
     const simIO = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && !simStarted) {
         simStarted = true;
-        setTimeout(() => { runSimLoop(); setInterval(runSimLoop, 21000); }, 800);
+        setTimeout(() => { runSimLoop(); setInterval(runSimLoop, 22000); }, 800);
       }
     }, { threshold: 0.3 });
     simIO.observe(simContainer);
