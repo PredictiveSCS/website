@@ -1005,11 +1005,11 @@
         updateRows(S1_EOP, S1_WOH);
         setStatus('Inventory position updates across all forward periods');
       });
-    }, 4500);
+    }, 5000);
 
     setTimeout(() => setStatus(''), 9500);
 
-    setTimeout(() => setStatus('Testing reduced order scenario in July\u2026'), 11000);
+    setTimeout(() => setStatus('User models impact of large order depleting inventory in July\u2026'), 11000);
     setTimeout(() => {
       typeIntoCell('s3', '-3,000', () => {
         updateRows(S2_EOP, S2_WOH);
