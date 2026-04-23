@@ -147,16 +147,22 @@
       gap: 8px;
       white-space: nowrap;
     }
+    .sim-narrative {
+      padding: 13px 16px;
+      min-height: 48px;
+      background: rgba(0,0,0,0.18);
+      border-bottom: 1px solid rgba(146,176,114,0.08);
+      display: flex;
+      align-items: center;
+    }
     .sim-status {
-      flex: 1;
-      font-size: 11px;
-      color: rgba(146,176,114,0.8);
-      font-style: italic;
+      width: 100%;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(146,176,114,0.95);
       opacity: 0;
-      transition: opacity 0.35s ease;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      transition: opacity 0.4s ease;
     }
     .sim-status.visible { opacity: 1; }
     .sim-recalc-btn {
@@ -268,19 +274,22 @@
       white-space: nowrap;
       font-weight: 500;
     }
+    .fin-narrative {
+      padding: 13px 22px;
+      min-height: 48px;
+      background: rgba(107,133,68,0.07);
+      border-bottom: 1px solid rgba(35,43,23,0.06);
+      display: flex;
+      align-items: center;
+    }
     .fin-status {
-      flex: 1;
+      width: 100%;
       font-family: 'Outfit', sans-serif;
-      font-size: 12px;
-      color: #6B8544;
+      font-size: 15px;
+      color: #5C6B52;
       font-weight: 500;
-      font-style: italic;
       opacity: 0;
-      transition: opacity 0.35s ease;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      min-width: 0;
+      transition: opacity 0.4s ease;
     }
     .fin-status.visible { opacity: 1; }
     .fin-title-bar {
@@ -353,6 +362,7 @@
       text-transform: uppercase;
       font-size: 11px;
     }
+    .fin-row-total td:not(:first-child) { text-align: right; }
     .fin-cell-active { background: rgba(146,176,114,0.22) !important; color: #3D5228 !important; }
     .fin-cell-updated { color: #6B8544 !important; }
     .fin-cell-flash-up { background: rgba(146,176,114,0.15) !important; }
@@ -671,6 +681,8 @@
                 <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 3.5l3 3 3-3" stroke="rgba(255,255,255,0.35)" stroke-width="1.1" stroke-linecap="round"/></svg>
               </div>
             </div>
+          </div>
+          <div class="sim-narrative">
             <div id="sim-status" class="sim-status"></div>
           </div>
           <div class="sim-table-scroll">
@@ -748,6 +760,8 @@
               <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1.5 3.5l3 3 3-3" stroke="#5C6B52" stroke-width="1.1" stroke-linecap="round"/></svg>
             </div>
           </div>
+        </div>
+        <div class="fin-narrative">
           <div id="fin-status" class="fin-status"></div>
         </div>
         <div class="fin-title-bar">
@@ -1012,11 +1026,21 @@
     // (loop is handled by setInterval)
   }
 
-  // Kick off after brief delay, then repeat
-  setTimeout(() => {
-    runSimLoop();
-    setInterval(runSimLoop, 21000);
-  }, 1800);
+  // Start sim when scrolled into view
+  (function () {
+    const simStatusEl = document.getElementById('sim-status');
+    if (!simStatusEl) return;
+    const simContainer = simStatusEl.closest('section');
+    if (!simContainer) return;
+    let simStarted = false;
+    const simIO = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !simStarted) {
+        simStarted = true;
+        setTimeout(() => { runSimLoop(); setInterval(runSimLoop, 21000); }, 800);
+      }
+    }, { threshold: 0.3 });
+    simIO.observe(simContainer);
+  })();
 
   // ── Finance demo animation ────────────────────────────
   (function () {
